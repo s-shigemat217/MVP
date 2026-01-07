@@ -11,6 +11,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/books', function () {
+    $books = Book::orderBy('created_at', 'desc')->get();
+    return view('books.index', compact('books'));
+});
+
 Route::get('/books/form', function () {
     return view('books.form');
 });

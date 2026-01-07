@@ -1,0 +1,25 @@
+body {
+  font-family: system-ui, sans-serif;
+  background: #f7f7f7;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 20px;
+}
+.book-list {
+  list-style-type: none;
+  padding: 0;
+  .list-item {
+    margin-bottom: 1em;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    column-gap: 30px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+  }
+}
