@@ -60,3 +60,16 @@ Route::post('/books/from-api', function (Request $request) {
 
     return back()->with('message', '登録しました');
 });
+
+// Show book details
+Route::get('/books/{book}', function (Book $book) {
+    return view('books.show', compact('book'));
+});
+
+
+Route::delete('/books/{book}', function (Book $book) {
+    $book->delete();
+
+    return redirect('/books')
+        ->with('message', '書籍を削除しました');
+});

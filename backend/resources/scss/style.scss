@@ -2,24 +2,226 @@ body {
   font-family: system-ui, sans-serif;
   background: #f7f7f7;
 }
+// Header styles
+#header {
 
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  background: #fff;
-  padding: 20px;
-}
-.book-list {
-  list-style-type: none;
-  padding: 0;
-  .list-item {
-    margin-bottom: 1em;
     display: flex;
-    flex-direction: row-reverse;
-    justify-content: flex-end;
-    column-gap: 30px;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 10px;
-    margin-bottom: 10px;
+    justify-content: space-between;
+    align-items: center;
+  background: #4a90e2;
+  color: white;
+  padding: 10px 20px 20px;
+
+  h1 {
+    margin: 0;
+    font-size: 1.5em;
+  }
+  .nav {
+    margin-top: 0.5em;
+    .nav-list {
+      list-style-type: none;
+      padding: 0;
+      display: flex;
+      gap: 20px;
+      .nav-item {
+        .nav-link {
+          color: white;
+          text-decoration: none;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
   }
 }
+
+// Footer styles
+#footer {
+  background: #4a90e2;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  .copy {
+    margin: 0;
+    font-size: 0.9em;
+  }
+}
+
+// Main content styles
+#main{
+    padding: 40px;
+    background: #F8FAFA;
+
+}
+
+//  Page header styles
+.page-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    .page-title{
+        font-size: 2em;
+        font-weight: bold;
+    }
+}
+
+// Button styles
+.btn{
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    &.btn-addBook{
+        color: white;
+        background-color: #4a90e2;
+        &::before{
+            content: "＋ ";
+        }
+        &:hover{
+            background-color: #357ABD;
+        }
+    }
+    &.btn-return{
+        color: white;
+        background-color: #4a90e2;
+        &::before{
+            content: "← ";
+        }
+        &:hover{
+            background-color: #357ABD;
+        }
+    }
+}
+
+
+// Book list styles
+.book-list {
+    background: #fefefe;
+    padding: 20px;
+    list-style-type: none;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 30px 50px;
+    .list-item {
+        .item-information {
+            margin-top: 10px;
+            font-size: 0.9em;
+            strong {
+                font-size: 1.1em;
+            }
+        }
+    }
+    .img{
+        min-width: 140px;
+        min-height: 180px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img{
+
+            object-fit: cover;
+        }
+    }
+}
+
+
+
+// Book detail styles
+.book-detail{
+    display: flex;
+    gap: 30px;
+    .left-content, .right-content{
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+    .left-content{
+        width: min(100%, 390px);
+    }
+    .right-content{
+        width: min(100%, 800px);
+    }
+    .basic-infomation{
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    .reading-infomation{
+        display: flex;
+        gap: 30px;
+        .card{
+            width: min(calc((100% - 30px) / 2), 390px);
+        }
+    }
+    .card{
+        width: 100%;
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+
+
+        .column-head{
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+    }
+    .img{
+        display: flex;
+        justify-content: center;
+        img{
+            width: 190px;
+            height: 270px;
+            border: solid 1px #ddd;
+        }
+
+    }
+}
+
+
+.quick-action {
+  padding: 18px;
+}
+
+
+.action-bnt-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.qa-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: none;
+  text-decoration: none;
+  font-weight: 700;
+  cursor: pointer;
+    &:disabled {
+    // opacity: 0.55;
+    cursor: not-allowed;
+    background: #ccc;
+    }
+}
+
+/* 色はお好みで（今は仮） */
+.qa-btn--edit { background: #F59E0B; color: #fff; }
+.qa-btn--start { background: #4f46e5; color: #fff; }
+.qa-btn--finish { background: #10B981; color: #fff; }
+.qa-btn--delete  { background: #ef4444; color: #fff; }
