@@ -21,6 +21,20 @@
         @endphp
 
         <li style="margin-bottom: 1em;">
+            @php
+                $thumbnail = $info['imageLinks']['thumbnail'] ?? null;
+                if ($thumbnail) {
+                    $thumbnail = str_replace('http://', 'https://', $thumbnail);
+                }
+            @endphp
+            <div class="result-image">
+                @if($thumbnail)
+                    <img src="{{ $thumbnail }}" alt="cover">
+                @else
+                    <img src="https://placehold.jp/cccccc/ffffff/100x140.png?text=No+Image" alt="no cover">
+                @endif
+            </div>
+
             <strong>{{ $info['title'] ?? 'タイトル不明' }}</strong><br>
             著者：{{ $info['authors'][0] ?? '不明' }}<br>
             出版社：{{ $info['publisher'] ?? '不明' }}<br>

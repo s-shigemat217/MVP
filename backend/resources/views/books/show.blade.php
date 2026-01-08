@@ -17,12 +17,12 @@
         <div class="card quick-action">
             <p class="column-head">クイックアクション</p>
             <ul class="action-bnt-list">
-                <li><a class="qa-btn qa-btn--edit" href="/books/{{ $book->id }}/edit">編集</a></li>
                 <li>
                     <button class="qa-btn qa-btn--start" type="button" disabled>読書開始（未実装）</button>
                 <li>
                     <button class="qa-btn qa-btn--finish" type="button" disabled>読了にする（未実装）</button>
                 </li>
+                <li><a class="qa-btn qa-btn--edit" href="/books/{{ $book->id }}/edit">編集</a></li>
                 <li>
                     <form method="POST" action="/books/{{ $book->id }}">
                         @csrf
@@ -39,24 +39,30 @@
     <div class="right-content">
         <div class="card basic-infomation">
             <p class="column-head">基本情報</p>
-            <p class="">タイトル</p>
-            <p class="">{{ $book->title }}</p>
-            <p class="">著者</p>
-            <p class="">{{ $book->author ?? '不明' }}</p>
-            <div class="publish-info">
-                <p class="">出版社</p>
-            <p class="">{{ $book->publisher ?? '不明' }}</p>
-
-            <p class="">出版日</p>
-            <p class="">{{ $book->published_date ?? '不明' }}</p>
+            <div class="card-item">
+                <p class="head">タイトル</p>
+                <p class="body">{{ $book->title }}</p>
             </div>
-
-
-            <p class="">ISBN</p>
-            <p class="">{{ $book->isbn ?? '不明' }}</p>
-
-            <p class="">ページ数</p>
-            <p class="">{{ $book->page_count ?? '不明' }}</p>
+            <div class="card-item">
+                <p class="head">著者</p>
+                <p class="body">{{ $book->author ?? '不明' }}</p>
+            </div>
+            <div class="card-item">
+                <p class="head">出版社</p>
+                <p class="body">{{ $book->publisher ?? '不明' }}</p>
+            </div>
+            <div class="card-item">
+                <p class="head">出版日</p>
+                <p class="body">{{ $book->published_date ?? '不明' }}</p>
+            </div>
+            <div class="card-item">
+                <p class="head">ISBN</p>
+                <p class="">{{ $book->isbn ?? '不明' }}</p>
+            </div>
+            <div class="card-item">
+                <p class="head">ページ数</p>
+                <p class="body">{{ $book->page_count ?? '不明' }}</p>
+            </div>
         </div>
         <div class="reading-infomation">
             <div class="card date-infomation">
