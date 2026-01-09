@@ -4,7 +4,9 @@
     <a class="btn btn-return" href="/books">一覧を見る</a>
 </div>
 @if(session('message'))
-    <p class="text-xl font-bold text-green-800">{{ session('message') }}</p>
+    <div class="message">
+        <p class="text-xl font-bold text-green-800">{{ session('message') }}</p>
+    </div>
 @endif
 
 <form method="GET" action="/books/search">

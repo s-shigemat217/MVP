@@ -22,7 +22,7 @@
                 <li>
                     <button class="qa-btn qa-btn--finish" type="button" disabled>読了にする（未実装）</button>
                 </li>
-                <li><a class="qa-btn qa-btn--edit" href="/books/{{ $book->id }}/edit">編集</a></li>
+                {{-- <li><a class="qa-btn qa-btn--edit" href="/books/{{ $book->id }}/edit" )>編集(未実装)</a></li> --}}
                 <li>
                     <form method="POST" action="/books/{{ $book->id }}">
                         @csrf

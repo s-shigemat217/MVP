@@ -5,7 +5,7 @@
 </div>
 @if(session('message'))
   <div class="message">
-    {{ session('message') }}
+    <p class="text-xl font-bold text-green-800">{{ session('message') }}</p>
   </div>
 @endif
 {{-- <ul class="book-list">
