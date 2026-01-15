@@ -1,7 +1,9 @@
 <x-header />
-<div class="page-header">
-    <h1 class="page-title">本の詳細</h1>
-    <a class="btn btn-return" href="/books">本を追加</a>
+<div class="flex items-center justify-between">
+    <h1 class="text-3xl font-bold">本の詳細</h1>
+    <a href="/books/" class="inline-flex items-center w-full px-5 py-3 mb-3 mr-1 text-base font-semibold text-white no-underline align-middle bg-blue-600 border border-transparent border-solid rounded-md cursor-pointer select-none sm:mb-0 sm:w-auto hover:bg-blue-700 hover:border-blue-700 hover:text-white focus-within:bg-blue-700 focus-within:border-blue-700">
+        本を追加<svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+    </a>
 </div>
 <div class="container book-detail">
     <div class="left-content">
@@ -14,9 +16,9 @@
             @endif
             </div>
         </div>
-        <div class="card quick-action">
+        <div class="card p-4">
             <p class="column-head">クイックアクション</p>
-            <ul class="action-bnt-list">
+            <ul class="flex flex-col gap-4">
                 <li>
                     <button class="qa-btn qa-btn--start" type="button" disabled>読書開始（未実装）</button>
                 <li>

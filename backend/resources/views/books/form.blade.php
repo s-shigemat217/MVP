@@ -1,5 +1,5 @@
 <x-header />
-<div class="page-header">
+<div class="page-header flex items-center justify-between">
     <h1 class="page-title">本を登録</h1>
     <a class="btn btn-return" href="/books">一覧を見る</a>
 </div>

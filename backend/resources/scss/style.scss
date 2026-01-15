@@ -1,75 +1,3 @@
-body {
-  font-family: system-ui, sans-serif;
-  background: #f7f7f7;
-}
-// Header styles
-#header {
-    min-height: 60px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  background: #4a90e2;
-  color: white;
-  padding: 10px 20px 20px;
-
-  h1 {
-    margin: 0;
-    font-size: 1.5em;
-  }
-  .nav {
-    margin-top: 0.5em;
-    .nav-list {
-      list-style-type: none;
-      padding: 0;
-      display: flex;
-      gap: 20px;
-      .nav-item {
-        .nav-link {
-          color: white;
-          text-decoration: none;
-          &:hover {
-            text-decoration: underline;
-          }
-        }
-      }
-    }
-  }
-}
-
-// Footer styles
-#footer {
-  background: #4a90e2;
-  color: white;
-  text-align: center;
-  padding: 10px 0;
-  position: relative;
-  bottom: 0;
-  width: 100%;
-  .copy {
-    margin: 0;
-    font-size: 0.9em;
-  }
-}
-
-// Main content styles
-#main{
-    min-height: calc(100vh - 110px);
-    padding: 40px;
-    background: #F8FAFA;
-}
-
-//  Page header styles
-.page-header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 24px;
-    .page-title{
-        font-size: 2em;
-        font-weight: bold;
-    }
-}
-
 // Button styles
 .btn{
     display: block;
@@ -144,41 +72,6 @@ body {
     }
 }
 
-// Book list styles
-.book-list {
-    background: #fefefe;
-    border: 1px solid #ddd;
-    padding: 20px;
-    list-style-type: none;
-    display: flex;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    gap: 30px 50px;
-    .list-item {
-        .item-information {
-            margin-top: 10px;
-            font-size: 0.9em;
-            strong {
-                font-size: 1.1em;
-            }
-        }
-    }
-    .img{
-        min-width: 140px;
-        min-height: 180px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        img{
-
-            object-fit: cover;
-        }
-    }
-}
-
-
-
 // Book detail styles
 .book-detail{
     display: flex;
@@ -230,19 +123,3 @@ body {
 
     }
 }
-
-
-.quick-action {
-  padding: 18px;
-}
-
-
-.action-bnt-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
