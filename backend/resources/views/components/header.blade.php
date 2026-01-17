@@ -31,4 +31,4 @@
             </nav>
             <!-- nav - end -->
     </header>
-    <main class="p-10 ">
+    <main class="p-10 bg-slate-50 min-h-screen">
