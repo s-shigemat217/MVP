@@ -27,6 +27,7 @@ class StoreBookFromApiRequest extends FormRequest
             'publisher' => ['nullable', 'string'],
             'published_date' => ['nullable', 'string'],
             'cover_image_url' => ['nullable', 'string'],
+            'purchase_price' => ['nullable', 'integer', 'min:0'],
             'source' => ['required', 'string'],
             'source_id' => ['required', 'string'],
         ];

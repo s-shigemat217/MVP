@@ -31,7 +31,7 @@
                 </li>
                 <li>
                     <x-button href="/books/{{ $book->id }}/edit" size="sm" variant="warning" class="w-full">
-                        編集(未実装)
+                        編集
                     </x-button>
                 </li>
                 <li>
@@ -69,11 +69,16 @@
         <div class="flex gap-8">
             <div class="w-1/2 p-4 border border-gray-500 rounded-xl">
                 <p class="text-lg font-semibold mb-4">購入・読書情報</p>
-                <p class="">読書情報</p>
                 <p class="">購入日</p>
-                {{ $book->created_at->format('Y-m-d H:i') }}
+                <p class="">
+                    {{ $book->purchased_date?->format('Y-m-d') ?? $book->created_at->format('Y-m-d') }}
+                </p>
+                <p class="">購入金額</p>
+                <p class="">{{ $book->purchase_price ? number_format($book->purchase_price) . '円' : '未設定' }}</p>
                 <p class="">読書開始日</p>
+                <p class="">{{ $book->reading_started_date?->format('Y-m-d') ?? '未設定' }}</p>
                 <p class="">読書終了日</p>
+                <p class="">{{ $book->reading_finished_date?->format('Y-m-d') ?? '未設定' }}</p>
             </div>
             <div class="w-1/2 p-4 border border-gray-500 rounded-xl">
                 <p class="text-lg font-semibold mb-4">カテゴリー情報</p>
