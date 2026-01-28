@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use App\Models\Book;
-use Illuminate\Validation\Rule;
 
 class BookController extends Controller
 {
@@ -63,7 +62,16 @@ class BookController extends Controller
     // Store a newly created book from external API data.
     public function store(Request $request)
     {
-        $validated = $request->validate($this->storeRules());
+        $validated = $request->validate([
+            'title' => ['required', 'string'],
+            'author' => ['nullable', 'string'],
+            'publisher' => ['nullable', 'string'],
+            'published_date' => ['nullable', 'string'],
+            'cover_image_url' => ['nullable', 'string'],
+            'purchase_price' => ['nullable', 'integer', 'min:0'],
+            'source' => ['required', 'string'],
+            'source_id' => ['required', 'string'],
+        ]);
 
         if (
             Book::where('source', $validated['source'])
@@ -93,9 +101,30 @@ class BookController extends Controller
 
     public function update(Request $request, Book $book)
     {
-        $validated = $request->validate($this->updateRules());
+        $validated = $request->validate([
+            'title' => ['required', 'string'],
+            'author' => ['nullable', 'string'],
+            'publisher' => ['nullable', 'string'],
+            'published_date' => ['nullable', 'string'],
+            'page_count' => ['nullable', 'integer', 'min:1'],
+            'purchased_date' => ['nullable', 'date'],
+            'purchase_price' => ['nullable', 'integer', 'min:0'],
+            'reading_started_date' => ['nullable', 'date'],
+            'reading_finished_date' => ['nullable', 'date'],
+            'category' => ['nullable', 'string'],
+            'tags' => ['nullable', 'string'],
+            'reading_notes' => ['nullable', 'string'],
+        ]);
 
-        $tags = $this->normalizeTags($validated['tags'] ?? null);
+        $tagsInput = $validated['tags'] ?? null;
+        $tags = null;
+        if ($tagsInput !== null) {
+            $tags = collect(explode(',', $tagsInput))
+                ->map(fn ($tag) => trim($tag))
+                ->filter()
+                ->values()
+                ->all();
+        }
 
         $book->update([
             'title' => $validated['title'],
@@ -124,49 +153,4 @@ class BookController extends Controller
         return redirect()->route('books.index')->with('message', '書籍を削除しました。');
     }
 
-    private function commonBookRules(): array
-    {
-        return [
-            'title' => ['required', 'string'],
-            'author' => ['nullable', 'string'],
-            'publisher' => ['nullable', 'string'],
-            'published_date' => ['nullable', 'string'],
-            'purchase_price' => ['nullable', 'integer', 'min:0'],
-        ];
-    }
-
-    private function storeRules(): array
-    {
-        return array_merge($this->commonBookRules(), [
-            'cover_image_url' => ['nullable', 'string'],
-            'source' => ['required', 'string'],
-            'source_id' => ['required', 'string'],
-        ]);
-    }
-
-    private function updateRules(): array
-    {
-        return array_merge($this->commonBookRules(), [
-            'page_count' => ['nullable', 'integer', 'min:1'],
-            'purchased_date' => ['nullable', 'date'],
-            'reading_started_date' => ['nullable', 'date'],
-            'reading_finished_date' => ['nullable', 'date'],
-            'category' => ['nullable', 'string'],
-            'tags' => ['nullable', 'string'],
-            'reading_notes' => ['nullable', 'string'],
-        ]);
-    }
-
-    private function normalizeTags(?string $tagsInput): ?array
-    {
-        if ($tagsInput === null) {
-            return null;
-        }
-
-        return collect(explode(',', $tagsInput))
-            ->map(fn ($tag) => trim($tag))
-            ->filter()
-            ->values()
-            ->all();
-    }
 }
