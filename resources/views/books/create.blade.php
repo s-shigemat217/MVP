@@ -58,7 +58,7 @@
                 <p class="text-sm">出版社：{{ $info['publisher'] ?? '不明' }}</p>
             </div>
 
-            <form method="POST" action="/books/from-api" class="mt-auto">
+            <form method="POST" action="{{ route('books.store') }}" class="mt-auto">
                 @csrf
 
                 <input type="hidden" name="title" value="{{ $info['title'] ?? '' }}">

@@ -1,7 +1,7 @@
 <x-header />
 <div class="flex items-center justify-between">
     <h1 class="text-3xl font-bold">本の詳細</h1>
-    <x-button href="/books/form" class="w-full mb-3 mr-1 sm:mb-0 sm:w-auto">
+    <x-button href="/books/create" class="w-full mb-3 mr-1 sm:mb-0 sm:w-auto">
         本を追加<svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
     </x-button>
 </div>
